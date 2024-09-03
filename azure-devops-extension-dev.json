@@ -1,0 +1,41 @@
+{
+  "manifestVersion": 1,
+  "id": "language-breakdown-hub-group",
+  "publisher": "danilocolombi",
+  "version": "0.0.6",
+  "name": "Language Breakdown [DEV]",
+  "description": "Language Breakdown provides a breakdown of the languages used in your repositories.",
+  "public": false,
+  "categories": ["Azure Repos"],
+  "tags": ["Repository", "Language", "Framework", "Breakdown"],
+  "targets": [
+    {
+      "id": "Microsoft.VisualStudio.Services"
+    }
+  ],
+  "icons": {
+    "default": "logo.png"
+  },
+  "content": {
+    "details": {
+      "path": "README.md"
+    },
+    "license": {
+      "path": "LICENSE"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "uri": "https://github.com/danilocolombi/language-breakdown"
+  },
+  "files": [
+    {
+      "path": "static",
+      "addressable": true
+    },
+    {
+      "path": "dist",
+      "addressable": true
+    }
+  ]
+}
