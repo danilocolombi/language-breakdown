@@ -2,7 +2,7 @@
 Language Breakdown addes a page to the Code Hub group that provides a breakdown of the languages of each repository.
 
 ## Preview
-![](https://github.com/danilocolombi/pipelines-monitor/blob/main/documentation/images/extension-preview.png?raw=true)
+![](https://github.com/danilocolombi/language-breakdown/blob/main/documentation/images/extension-preview.png?raw=true)
 
 ## Install
 The extension can be installed from [Azure DevOps Marketplace](https://marketplace.visualstudio.com/items?itemName=danilocolombi.language-breakdown).
