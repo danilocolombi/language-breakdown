@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "language-breakdown-hub-group",
   "publisher": "danilocolombi",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "name": "Language Breakdown",
   "description": "Language Breakdown provides a breakdown of the languages used in your repositories.",
   "public": false,
