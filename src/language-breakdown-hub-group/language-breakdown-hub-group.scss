@@ -1,9 +1,0 @@
-@import "node_modules/azure-devops-ui/Core/_platformCommon.scss";
-
-.metrics-section {
-  margin-top: 20px;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  column-gap: 60px;
-  row-gap: 30px;
-}

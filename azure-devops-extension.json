@@ -1,13 +1,13 @@
 {
   "manifestVersion": 1,
-  "id": "language-breakdown-hub-group",
+  "id": "language-breakdown-widget",
   "publisher": "danilocolombi",
-  "version": "0.0.2",
-  "name": "Language Breakdown",
+  "version": "0.0.1",
+  "name": "Language Breakdown Widget",
   "description": "Language Breakdown provides a breakdown of the languages used in your repositories.",
-  "public": false,
+  "public": true,
   "categories": ["Azure Repos"],
-  "tags": ["Repository", "Language", "Framework", "Breakdown"],
+  "tags": ["Azure Dashboards", "Language", "Repository", "Breakdown"],
   "targets": [
     {
       "id": "Microsoft.VisualStudio.Services"
@@ -26,7 +26,7 @@
   },
   "repository": {
     "type": "git",
-    "uri": "https://github.com/danilocolombi/language-breakdown"
+    "uri": "https://github.com/danilocolombi/language-breakdown-widget"
   },
   "files": [
     {

@@ -1,0 +1,27 @@
+{
+  "contributions": [
+    {
+      "id": "language-breakdown-widget",
+      "type": "ms.vss-dashboards-web.widget",
+      "targets": [
+        "ms.vss-dashboards-web.widget-catalog",
+        ".language-widget.config"
+      ],
+      "properties": {
+        "name": "Language Breakdown",
+        "description": "Show which languages are used in your repositories.",
+        "catalogIconUrl": "static/logo.png",
+        "uri": "dist/language-breakdown-widget/language-breakdown-widget.html",
+        "isNameConfigurable": true,
+        "supportedSizes": [
+          { "rowSpan": 4, "columnSpan": 4 },
+          { "rowSpan": 3, "columnSpan": 3 },
+          { "rowSpan": 3, "columnSpan": 4 },
+          { "rowSpan": 4, "columnSpan": 3 }
+        ],
+        "supportedScopes": ["project_team"]
+      }
+    }
+  ],
+  "scopes": ["vso.analytics"]
+}

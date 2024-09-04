@@ -1,0 +1,14 @@
+{
+  "contributions": [
+    {
+      "id": "language-widget.config",
+      "type": "ms.vss-dashboards-web.widget-configuration",
+      "targets": ["ms.vss-dashboards-web.widget-configuration"],
+      "properties": {
+        "name": "Language breakdown widget configuration",
+        "uri": "dist/widget-configuration/widget-configuration.html",
+        "logo": "logo.png"
+      }
+    }
+  ]
+}

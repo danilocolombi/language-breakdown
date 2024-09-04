@@ -1,0 +1,3 @@
+interface ILanguageBreakdownWidgetSettings {
+  title: string;
+}
