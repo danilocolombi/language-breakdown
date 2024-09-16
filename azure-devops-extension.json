@@ -2,12 +2,12 @@
   "manifestVersion": 1,
   "id": "language-breakdown-widget",
   "publisher": "danilocolombi",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "name": "Language Breakdown Widget",
   "description": "Language Breakdown provides a breakdown of the languages used in your repositories.",
   "public": true,
   "categories": ["Azure Repos"],
-  "tags": ["Azure Dashboards", "Language", "Repository", "Breakdown"],
+  "tags": ["Azure Dashboards", "Language", "Repository", "Breakdown", "Widget"],
   "targets": [
     {
       "id": "Microsoft.VisualStudio.Services"
