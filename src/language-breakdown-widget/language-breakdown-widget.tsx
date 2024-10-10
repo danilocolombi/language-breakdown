@@ -17,7 +17,7 @@ import { ArrayItemProvider } from "azure-devops-ui/Utilities/Provider";
 import { Observer } from "azure-devops-ui/Observer";
 import { showRootComponent } from "../root";
 import { getLanguageMetrics } from "../utility";
-import { LanguageStatistics, ProjectLanguageAnalytics } from "azure-devops-extension-api/ProjectAnalysis/ProjectAnalysis";
+import { ProjectLanguageAnalytics } from "azure-devops-extension-api/ProjectAnalysis/ProjectAnalysis";
 
 interface ILanguageBreakdownWidgetState {
   title: string;
@@ -45,10 +45,24 @@ class LanguageBreakdownWidget extends React.Component<{}, ILanguageBreakdownWidg
       return <div></div>;
     }
 
-    const rawTableItems: ITableItem[] = metrics.repositoryLanguageAnalytics.map(repositoryLanguageAnalytics => ({
-      name: repositoryLanguageAnalytics.name,
-      languages: formatLanguages(repositoryLanguageAnalytics.languageBreakdown),
-    }));
+
+
+    const rawTableItems: ITableItem[] = metrics.repositoryLanguageAnalytics.map(repositoryLanguageAnalytics => {
+      const filteredLanguages = repositoryLanguageAnalytics.languageBreakdown
+        .sort((a, b) => b.languagePercentage - a.languagePercentage)
+        .filter(language => language.languagePercentage > 1);
+
+      const language1 = filteredLanguages.length > 0 ? filteredLanguages[0].name + " " + filteredLanguages[0].languagePercentage + "%" : '-'
+      const language2 = filteredLanguages.length > 1 ? filteredLanguages[1].name + " " + filteredLanguages[1].languagePercentage + "%" : '-';
+      const language3 = filteredLanguages.length > 2 ? filteredLanguages[2].name + " " + filteredLanguages[2].languagePercentage + "%" : '-';
+
+      return {
+        name: repositoryLanguageAnalytics.name,
+        language1: language1,
+        language2: language2,
+        language3: language3,
+      }
+    });
 
     const sortingBehavior = new ColumnSorting<ITableItem>(
       (columnIndex: number, proposedSortOrder: SortOrder) => {
@@ -69,7 +83,13 @@ class LanguageBreakdownWidget extends React.Component<{}, ILanguageBreakdownWidg
         return item1.name.localeCompare(item2.name);
       },
       (item1: ITableItem, item2: ITableItem): number => {
-        return item1.languages.localeCompare(item2.languages);
+        return item1.language1.localeCompare(item2.language1);
+      },
+       (item1: ITableItem, item2: ITableItem): number => {
+        return item1.language2.localeCompare(item2.language2);
+      },
+      (item1: ITableItem, item2: ITableItem): number => {
+        return item1.language3.localeCompare(item2.language3);
       }
     ];
 
@@ -139,7 +159,9 @@ showRootComponent(<LanguageBreakdownWidget />);
 
 export interface ITableItem extends ISimpleTableCell {
   name: string;
-  languages: string;
+  language1: string;
+  language2: string;
+  language3: string;
 }
 
 const columns: ITableColumn<ITableItem>[] = [
@@ -152,28 +174,39 @@ const columns: ITableColumn<ITableItem>[] = [
       ariaLabelAscending: "Sorted A to Z",
       ariaLabelDescending: "Sorted Z to A",
     },
-    width: new ObservableValue(-50),
+    width: new ObservableValue(-35),
   },
   {
-    id: "languages",
-    name: "Languages",
+    id: "language1",
+    name: "Language 1",
     readonly: true,
     renderCell: renderSimpleCell,
     sortProps: {
       ariaLabelAscending: "Sorted A to Z",
       ariaLabelDescending: "Sorted Z to A",
     },
-    width: new ObservableValue(-50),
+    width: new ObservableValue(-21),
+  },
+  {
+    id: "language2",
+    name: "Language 2",
+    readonly: true,
+    renderCell: renderSimpleCell,
+    sortProps: {
+      ariaLabelAscending: "Sorted A to Z",
+      ariaLabelDescending: "Sorted Z to A",
+    },
+    width: new ObservableValue(-21),
+  },
+  {
+    id: "language3",
+    name: "Language 3",
+    readonly: true,
+    renderCell: renderSimpleCell,
+    sortProps: {
+      ariaLabelAscending: "Sorted A to Z",
+      ariaLabelDescending: "Sorted Z to A",
+    },
+    width: new ObservableValue(-21),
   }
 ];
-
-function formatLanguages(languages: LanguageStatistics[]) {
-  if (!languages || languages.length === 0) {
-    return "Not defined";
-  }
-
-  return languages
-    .sort((a, b) => b.languagePercentage - a.languagePercentage)
-    .filter(language => language.languagePercentage > 1)
-    .map(language => language.name).join(", ");
-}

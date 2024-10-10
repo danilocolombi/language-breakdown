@@ -1,8 +1,8 @@
 {
   "manifestVersion": 1,
-  "id": "language-breakdown-widget",
+  "id": "language-breakdown-widget-dev",
   "publisher": "danilocolombi",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "name": "Language Breakdown Widget [DEV]",
   "description": "Language Breakdown provides a breakdown of the languages used in your repositories.",
   "public": false,
